@@ -1,38 +1,69 @@
 .App {
-  text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #00C6A7;
+  color:white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-menu ul 
+{
+display: flex;  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.nav-menu ul li
+{
+display: flex; 
+flex-direction: row;
+list-style: none;
+}
+
+.nav-menu ul li a
+{
+text-decoration: none;
+color:#fff;
+text-transform: uppercase;
+padding-right:20px ;
+font-weight: 500;
+}
+
+.nav-logo
+{
+text-transform: uppercase;  
+}
+
+.home-section{
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(57deg,#00C6A7 , #1E4D92);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color:#fff;
+  clip-path: polygon(0%0%,0%100%,100%70%,100%0%);/*y,x*/
+}
+
+input[type="text"]
+{
+height:30px;
+border:none;
+outline: none;
+border: 1px solid rgb(121, 173, 250);
+}
+
+
+@media only screen and (max-width: 600px) {
+  /*Navbar CSS starts*/
+  .navbar {
+    height: 60px;
+    width: 100%;
+    background: rgb(21, 133, 185);
+    display: flex;
+    flex-direction: column;
   }
 }
