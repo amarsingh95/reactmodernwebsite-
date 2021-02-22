@@ -4,19 +4,36 @@ const dform=()=>
 {
     const handleSubmit=(event)=>{
         event.preventDefault();
-    let usrname=document.querySelector("#username");
-    
+    let username = document.querySelector('#username');
+    let fullname = document.querySelector('#fullname');
+    let emailid = document.querySelector('#emailid');
+    var form = new FormData();
+    form.append('username',username.value)
+    form.append('fullname',fullname.value)
+    form.append('emailid',emailid.value);
+        let data={'username':username.value,'fullname':fullname.value,'emailid':emailid.value};
+
+    fetch("http://localhost:5000/service",{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:
+        {
+            'Content-Type':'application/json'
+        }
+    }).then(data=>data.json())
+     .then(resp=>console.log(resp))   
+    ;
 }
     return (<>
     <div>
         <form onSubmit={handleSubmit}>
             <div style={{display:"flex",flexDirection:"column",alignItems:"center",margin:"20px"}}>
             <label for="username">UserName</label>
-            <input type="text" id="username"/>
+            <input type="text" name="username" id="username"/>
             <label for="fullname">Full Name</label>
-            <input type="text" id="fullname"/>
+            <input type="text" name="fullname" id="fullname"/>
             <label for="emailid">EmailID</label>
-            <input type="text" id="emailid"/>
+            <input type="text" name="emailid" id="emailid"/>
             <input type="submit" id="submit"/>
             </div>
         </form>
