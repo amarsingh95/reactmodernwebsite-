@@ -3,15 +3,12 @@ import React from 'react';
 const dform=()=>
 {
     const handleSubmit=(event)=>{
-        event.preventDefault();
+    event.preventDefault();
     let username = document.querySelector('#username');
     let fullname = document.querySelector('#fullname');
     let emailid = document.querySelector('#emailid');
-    var form = new FormData();
-    form.append('username',username.value)
-    form.append('fullname',fullname.value)
-    form.append('emailid',emailid.value);
-        let data={'username':username.value,'fullname':fullname.value,'emailid':emailid.value};
+
+    let data={'username':username.value,'fullname':fullname.value,'emailid':emailid.value};
 
     fetch("http://localhost:5000/service",{
         method:"POST",
@@ -21,8 +18,12 @@ const dform=()=>
             'Content-Type':'application/json'
         }
     }).then(data=>data.json())
-     .then(resp=>console.log(resp))   
-    ;
+     .then(resp=>{
+         console.log(resp);
+         username.value="";
+         fullname.value="" ;
+         emailid.value=""; 
+        });
 }
     return (<>
     <div>
