@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
 import Dform from './dform';
+import Dynamic from './dynamic';
 import {Route,Switch,Link} from 'react-router-dom';
 
 function App() {
@@ -15,8 +16,8 @@ function App() {
       <Route path="/form">
       <Dform/>
       </Route>
-      <Route path="/Home">
-      <Home/>
+      <Route path="/dynamic">
+      <Dynamic/>
       </Route>
       <Route path="/Home">
       <Home/>

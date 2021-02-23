@@ -53,11 +53,26 @@ height:30px;
 border:none;
 outline: none;
 border: 1px solid rgb(121, 173, 250);
+margin: 10px;
 }
 
-input[type="submit"]
+
+
+.btn
 {
-margin:10px;  
+border:none;
+outline: none;  
+border: 1px solid rgb(121, 173, 250);
+background: none;
+width: 175px;
+height: 50px;
+color:black;
+font-size: 17px;
+margin: 10px;
+}
+
+form{
+  margin:40px;
 }
 
 @media only screen and (max-width: 600px) {

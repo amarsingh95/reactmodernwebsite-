@@ -10,6 +10,7 @@ return (
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/home">About</Link></li>
                 <li><Link to="/form">Service</Link></li>
+                <li><Link to="/dynamic">Dynamic</Link></li>
                 <li><Link to="/home">Contact</Link></li>
             </ul>
         </div>
