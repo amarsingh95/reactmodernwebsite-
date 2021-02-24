@@ -21,7 +21,7 @@ const dform=()=>
      .then(resp=>{
          console.log(resp);
          username.value="";
-         fullname.value="" ;
+         fullname.value="";
          emailid.value=""; 
         });
 }
