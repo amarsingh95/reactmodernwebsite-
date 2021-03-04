@@ -1,16 +1,14 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import InputElement from './inputelement';
 
 const Dynamic=()=>{
 
     let nameObj={username:"",fullname:"",email:""};
     const [user,setUser]=useState([nameObj]);
-    useEffect(()=>{
-        //console.log(user);
-    })
-
-    function addMoreitem()
+  
+    function addMoreitem(e)
     {
+    e.preventDefault();
     setUser([...user,nameObj]);
     }
 
@@ -21,7 +19,7 @@ const Dynamic=()=>{
             i==index?Object.assign(user,{[e.target.name]:e.target.value}):user
         ));
         setUser(updatedUser);   
-        
+        console.log(updatedUser);
     }
 
     function handleSubmit(e)
@@ -51,16 +49,17 @@ return (<>
 <div>
     <form onSubmit={e=>handleSubmit(e)}>
     {user.map((user,i)=>(
-        <>
-        <input type="text" name="fullname" onChange={e=>getformData(e,i)} value={user.fullname} key={`fullname${i}`} placeholder="FULLNAME" />
-        <input type="text" name="username" onChange={e=>getformData(e,i)} value={user.username} key={`username${i}`} placeholder="USERNAME" />
-        <input type="text" name="email" onChange={e=>getformData(e,i)} value={user.email} key={`email${i}`} placeholder="EMAIL" />
+        
+        <div key={i}>
+        <input type="text" name="fullname" onChange={e=>getformData(e,i)} value={user.fullname}  placeholder="FULLNAME" key={`fullname${i}`} />
+        <input type="text" name="username" onChange={e=>getformData(e,i)} value={user.username}  placeholder="USERNAME" key={`username${i}`} />
+        <input type="text" name="email" onChange={e=>getformData(e,i)} value={user.email}  placeholder="EMAIL" key={`email${i}`} />
         <button onClick={e=>handleDelete(e,i)}>Delete</button>
-        <br/>
-        </>
+        </div>
+        
     ))}
     <input className="btn" type="submit" value="Submit"/>
-    <button className="btn" onClick={addMoreitem}>Add More</button>
+    <button className="btn" onClick={(e)=>{addMoreitem(e)}}>Add More</button>
     </form>
 </div>
 </>);
