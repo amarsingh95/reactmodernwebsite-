@@ -4,12 +4,14 @@ import InputElement from './inputelement';
 const Dynamic=()=>{
 
     let nameObj={username:"",fullname:"",email:""};
-    const [user,setUser]=useState([nameObj]);
+    const [user,setUser]=useState([{username:"",fullname:"",email:""}]);
+    console.log(user);
   
     function addMoreitem(e)
     {
     e.preventDefault();
     setUser([...user,nameObj]);
+    console.log(user);
     }
 
     function getformData(e,i)
